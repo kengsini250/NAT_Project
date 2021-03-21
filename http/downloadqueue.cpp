@@ -6,6 +6,15 @@ DownloadQueue::DownloadQueue(QWidget *parent) :
     ui(new Ui::DownloadQueue)
 {
     ui->setupUi(this);
+
+    ListWidgetUI *listUI = new ListWidgetUI(this);
+    ui->listWidget->setItemDelegate(listUI);
+    item = new QListWidgetItem(ui->listWidget);
+
+    //test
+    DownloadWidget *w1 = new DownloadWidget(this);
+    ui->listWidget->setItemWidget(item,w1);
+    w1->show(width(),20);
 }
 
 void DownloadQueue::setSize(int w, int h)
@@ -26,12 +35,4 @@ int DownloadQueue::getHeight()
 DownloadQueue::~DownloadQueue()
 {
     delete ui;
-}
-
-void DownloadQueue::paintEvent(QPaintEvent *event)
-{
-    Q_UNUSED(event)
-    QPainter p(this);
-    p.setBrush(Qt::blue);
-    p.drawRect(QRect(0,0,width(),height()));
 }

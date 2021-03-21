@@ -10,9 +10,11 @@ CONFIG += c++11
 
 SOURCES += \
     FileFormat.cpp \
+    downloadwidget.cpp \
     http/downloadqueue.cpp \
     http/http.cpp \
     http/httpdownload.cpp \
+    listwidgetui.cpp \
     main.cpp \
     mainwindow.cpp \
     newuser/newuser.cpp \
@@ -23,9 +25,11 @@ SOURCES += \
 
 HEADERS += \
     FileFormat.h \
+    downloadwidget.h \
     http/downloadqueue.h \
     http/HTTP.h \
     http/httpdownload.h \
+    listwidgetui.h \
     mainwindow.h \
     newuser/newuser.h \
     presenter.h \

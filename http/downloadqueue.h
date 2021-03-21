@@ -2,10 +2,9 @@
 #define DOWNLOADQUEUE_H
 
 #include <QWidget>
-//test
-#include <QPainter>
-#include <QPaintEvent>
-//
+#include <QListWidgetItem>
+#include "../downloadwidget.h"
+#include "../listwidgetui.h"
 
 namespace Ui {
 class DownloadQueue;
@@ -21,10 +20,9 @@ public:
     int getWidth();
     int getHeight();
     ~DownloadQueue();
-protected:
-    void paintEvent(QPaintEvent *event);
 private:
     Ui::DownloadQueue *ui;
+    QListWidgetItem *item;
 };
 
 #endif // DOWNLOADQUEUE_H
