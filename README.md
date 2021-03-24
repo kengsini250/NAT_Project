@@ -1,4 +1,4 @@
-# NAT_Project V1.0.0  
+# NAS_Project V1.7.1  
 ##by Qt 6.1.0   
       
 树莓派4 8G + 1T的ssd + 1T的HDD
