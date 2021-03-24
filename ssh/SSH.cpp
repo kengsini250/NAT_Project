@@ -28,10 +28,10 @@ void SSH::init()
     connect(proc,&QProcess::readyReadStandardOutput,this,[this]{
         QByteArray data = proc->readAllStandardOutput();
         QString t = data;
-        if(t[0] == "/"){
+        if(t[0] == '/'){
             path = t;
             emit ssh2presenter_pwd(path);
-        }else if(t[0] == "t"){
+        }else if(t[0] == 't'){
             emit ssh2presenter_sendFormat(FileFormat::makeFileFormat(t));
         }
     });

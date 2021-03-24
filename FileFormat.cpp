@@ -30,9 +30,9 @@ QList<FileFormat> FileFormat::makeFileFormat(const QString &data)
     for(auto p = currList.begin(); p != currList.end()-1; p++){
         QString format = (*p).split(" ").first();
         QString currName = (*p).split(" ").last();
-        if(format[0] == "d")
+        if(format[0] == 'd')
             currFileList.push_back(FileFormat(Format::DIR,currName));
-        if(format[0] == "-")
+        if(format[0] == '-')
             currFileList.push_back(FileFormat(Format::FILE,currName));
     }
     return currFileList;

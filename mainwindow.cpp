@@ -1,17 +1,20 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "http/downloadqueue.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    dqInit();
+    QMainWindow::setMouseTracking(true);
+    QMainWindow::centralWidget()->setMouseTracking(true);
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+    delete dq;
 }
 
 void MainWindow::bind(Presenter *p)
@@ -20,15 +23,11 @@ void MainWindow::bind(Presenter *p)
     mvpInit();
 }
 
-void MainWindow::dqInit()
+void MainWindow::bindDownloadQueue(DownloadQueue *d)
 {
-    QMainWindow::setMouseTracking(true);
-    QMainWindow::centralWidget()->setMouseTracking(true);
-    dq = new DownloadQueue(this);
-    dq->setSize(width()-200,height());
+    dq = d;
     dq->move(width(),0);
-    dq->show();
-
+    dq->setSize(width()-200,height());
     animation = new QPropertyAnimation(dq,"geometry");
     animation->setDuration(1000);
     animation->setEasingCurve(QEasingCurve::InOutQuint);

@@ -41,6 +41,7 @@ signals:
     void uploading(const QString&);
     void uploadFinished(const QString&);
     void downloading(const QString&);
+    void downloadProgress(const QString&,qint64,qint64);
 };
 
 #endif // HTTP_H

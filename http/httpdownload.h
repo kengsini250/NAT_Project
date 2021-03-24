@@ -32,7 +32,9 @@ private:
     QDir dir;
     QNetworkAccessManager *m;
     QNetworkRequest r;
-
+signals:
+    void downloadStart(const QString& n);
+    void downloadProgress(const QString&,qint64,qint64);
 };
 
 #endif // HTTPDOWNLOAD_H

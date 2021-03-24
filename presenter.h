@@ -9,6 +9,7 @@ class NewUser;
 class SSH;
 class HTTP;
 class Setting;
+class DownloadQueue;
 
 class Presenter : public QObject
 {
@@ -30,6 +31,7 @@ private:
     MainWindow* mainWindow;
     SSH* ssh;
     HTTP* http;
+    DownloadQueue *dq;
 };
 
 #endif // PRESENTER_H

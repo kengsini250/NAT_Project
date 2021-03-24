@@ -14,7 +14,6 @@
 #include <QDebug>
 
 #include "FileFormat.h"
-#include "http/downloadqueue.h"
 #include "presenter.h"
 
 QT_BEGIN_NAMESPACE
@@ -29,6 +28,7 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
     void bind(Presenter* p);
+    void bindDownloadQueue(DownloadQueue*);
 
 signals:
     void mainwindow2presenter_pwd();
@@ -41,12 +41,11 @@ private:
     Ui::MainWindow *ui;
     QList<FileFormat> currList;
     Presenter* p;
+    DownloadQueue* dq;
 
-    DownloadQueue *dq;
     QPropertyAnimation *animation;
     bool dqFlag = false;
 
-    void dqInit();
     void mvpInit();
 protected:
     void mouseMoveEvent(QMouseEvent *event)override;

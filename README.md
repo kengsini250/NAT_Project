@@ -1,4 +1,6 @@
-# NAT_Project V1.0.0
+# NAT_Project V1.0.0  
+##by Qt 6.1.0   
+      
 树莓派4 8G + 1T的ssd + 1T的HDD
   - 上传，下载，删除
 

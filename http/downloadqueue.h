@@ -5,6 +5,7 @@
 #include <QListWidgetItem>
 #include "../downloadwidget.h"
 #include "../listwidgetui.h"
+#include "../presenter.h"
 
 namespace Ui {
 class DownloadQueue;
@@ -16,6 +17,7 @@ class DownloadQueue : public QWidget
 
 public:
     explicit DownloadQueue(QWidget *parent = nullptr);
+    void bind(Presenter*);
     void setSize(int w,int h);
     int getWidth();
     int getHeight();
@@ -23,6 +25,7 @@ public:
 private:
     Ui::DownloadQueue *ui;
     QListWidgetItem *item;
+    Presenter* p;
 };
 
 #endif // DOWNLOADQUEUE_H

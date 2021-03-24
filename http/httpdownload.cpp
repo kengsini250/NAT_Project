@@ -72,6 +72,7 @@ void HttpDownload::downloadFile(const QString &target,const QString &n)
     QEventLoop loop;
     connect(m1,&QNetworkAccessManager::finished,&loop,&QEventLoop::quit);
     auto out = m1->get(r1);
+    connect(out,&QNetworkReply::downloadProgress,this,[this,&target](qint64 a,qint64 b){emit downloadProgress(target,a,b);});
     loop.exec();
 
     QByteArray bytes = out->readAll();

@@ -17,6 +17,11 @@ DownloadQueue::DownloadQueue(QWidget *parent) :
     w1->show(width(),20);
 }
 
+void DownloadQueue::bind(Presenter *p)
+{
+    this->p = p;
+}
+
 void DownloadQueue::setSize(int w, int h)
 {
     resize(w,h);

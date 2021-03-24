@@ -4,6 +4,7 @@
 #include "setting/setting.h"
 #include "http/HTTP.h"
 #include "ssh/SSH.h"
+#include "http/downloadqueue.h"
 
 Presenter::Presenter(QObject *parent) : QObject(parent)
 {
@@ -17,6 +18,9 @@ Presenter::Presenter(QObject *parent) : QObject(parent)
     ssh->bind(this);
     http = new HTTP;
     http->bind(this);
+    dq = new DownloadQueue(mainWindow);
+    dq->bind(this);
+    mainWindow->bindDownloadQueue(dq);
 
     //login
     connect(newUser,&NewUser::send,ssh,&SSH::setHost);
@@ -40,16 +44,13 @@ Presenter::Presenter(QObject *parent) : QObject(parent)
 
 Presenter::~Presenter()
 {
-    delete newUser;
-    delete setting;
-    delete ssh;
-    delete http;
     delete mainWindow;
 }
 
 void Presenter::show()
 {
     mainWindow->show();
+    dq->show();
 }
 
 void Presenter::newuser_show()
