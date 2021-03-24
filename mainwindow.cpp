@@ -14,7 +14,6 @@ MainWindow::MainWindow(QWidget *parent)
 MainWindow::~MainWindow()
 {
     delete ui;
-    delete dq;
 }
 
 void MainWindow::bind(Presenter *p)

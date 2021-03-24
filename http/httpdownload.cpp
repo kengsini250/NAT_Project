@@ -25,6 +25,11 @@ HttpDownload::HttpDownload(const QDir& d, QObject *p):QObject(p)
     m = new QNetworkAccessManager(this);
 }
 
+HttpDownload::~HttpDownload()
+{
+    delete m;
+}
+
 void HttpDownload::setDir(const QString &p)
 {
     dir.setCurrent(p);

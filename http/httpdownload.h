@@ -25,6 +25,7 @@ class HttpDownload : public QObject
     Q_OBJECT
 public:
     HttpDownload(const QDir& d, QObject* p = nullptr);
+    ~HttpDownload();
     void setDir(const QString&);
     void download(const QString &target,const QString &ip = "");
     void downloadFile(const QString &target,const QString& n);

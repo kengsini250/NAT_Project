@@ -20,6 +20,7 @@ class HTTP : public QObject
     Q_OBJECT
 public:
     HTTP(QObject *parent = nullptr);
+    ~HTTP();
     void bind(Presenter*);
 public slots:
     void setHost(const User&);

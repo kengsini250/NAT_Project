@@ -8,6 +8,11 @@ HTTP::HTTP(QObject *parent) : QObject(parent)
     connect(d,&HttpDownload::downloadProgress,this,[this](const QString &n,qint64 a,qint64 b){emit downloadProgress(n,a,b);});
 }
 
+HTTP::~HTTP()
+{
+    delete d;
+}
+
 void HTTP::bind(Presenter *p)
 {
     this->p=p;

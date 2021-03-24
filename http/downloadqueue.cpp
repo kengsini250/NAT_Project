@@ -7,6 +7,7 @@ DownloadQueue::DownloadQueue(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    //delete listUI ?
     ListWidgetUI *listUI = new ListWidgetUI(this);
     ui->listWidget->setItemDelegate(listUI);
     item = new QListWidgetItem(ui->listWidget);

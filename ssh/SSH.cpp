@@ -2,9 +2,7 @@
 
 SSH::~SSH()
 {
-    if(!activing){
-        delete p;
-    }
+    delete proc;
 }
 
 SSH::SSH(QObject *parent) : QObject(parent)

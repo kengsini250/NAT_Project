@@ -44,6 +44,11 @@ Presenter::Presenter(QObject *parent) : QObject(parent)
 
 Presenter::~Presenter()
 {
+    delete http;
+    delete newUser;
+    delete setting;
+    delete ssh;
+    delete dq;
     delete mainWindow;
 }
 
